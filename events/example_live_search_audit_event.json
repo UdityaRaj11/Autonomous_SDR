@@ -1,0 +1,64 @@
+{
+  "event_id": "b1a82e91-62d4-47f9-90bc-3ef1994e6301",
+  "tenant_id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  "lead_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "agent_run_id": "c7a8291f-0e12-4c28-bb73-9a80e46123cd",
+  "event_timestamp": "2026-10-29T02:44:12.891Z",
+  "event_type": "SIGNAL_SCRAPED",
+  "actor": {
+    "actor_type": "SYSTEM_SERVICE",
+    "actor_id": "live-web-search-engine",
+    "ip_address": "10.0.12.44",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AutonomousSDR/1.1"
+  },
+  "telemetry": {
+    "otel_trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "otel_span_id": "00f067aa0ba902b7"
+  },
+  "cryptographic_integrity": {
+    "payload_sha256": "7a8b4c9d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b",
+    "previous_event_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "event_sha256": "9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c1b0a9f8e",
+    "worm_storage_uri": "s3://compliance-vault/audit-events/2026/10/29/b1a82e91-62d4-47f9-90bc-3ef1994e6301.json.gz",
+    "merkle_root": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data_privacy": {
+    "pii_masked": true,
+    "crypto_shred_key_id": "arn:aws:kms:us-east-1:123456789012:key/mrk-987654321",
+    "tokenized_fields": ["lead_name", "lead_email"]
+  },
+  "payload": {
+    "company_name": "NeoPay European Ledger",
+    "target_lead": "{{TOKEN_LEAD_NAME}}",
+    "search_vectors": [
+      "NeoPay European Ledger news expansion hiring funding 2025 2026",
+      "{{TOKEN_LEAD_NAME}} NeoPay European Ledger VP of Platform Engineering",
+      "https://neopay.eu"
+    ],
+    "scraped_sources": [
+      "https://linkedin.com/jobs/view/banking-cloud-security-architect-12345",
+      "https://github.com/neopay/ledger-core",
+      "https://neopay.eu"
+    ],
+    "discovered_signals": [
+      {
+        "signal_type": "HIRING_EXPANSION",
+        "title": "Hiring 4 Cloud Security Architects for Banking Ledger",
+        "source": "LinkedIn Talent Insights",
+        "source_url": "https://linkedin.com/jobs/view/banking-cloud-security-architect-12345",
+        "confidence": 0.94,
+        "sentiment": "POSITIVE"
+      },
+      {
+        "signal_type": "TECH_STACK_MIGRATION",
+        "title": "Migrating Core Payments Ledger to AWS EKS & Distributed PostgreSQL",
+        "source": "GitHub",
+        "source_url": "https://github.com/neopay/ledger-core",
+        "confidence": 0.92,
+        "sentiment": "NEUTRAL"
+      }
+    ],
+    "search_duration_ms": 348,
+    "total_signals": 2
+  }
+}

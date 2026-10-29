@@ -1,0 +1,73 @@
+{
+  "event_id": "7f1c1a2e-5a5f-4bf2-9844-32ff5109b830",
+  "tenant_id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  "lead_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "agent_run_id": "6a9f4c28-98e4-4cb4-9721-3e4b7bdf012e",
+  "event_timestamp": "2026-10-29T00:15:32.418Z",
+  "event_type": "NODE3_DRAFT_EXECUTED",
+  "actor": {
+    "actor_type": "LLM_CHAIN_WORKER",
+    "actor_id": "worker-pool-us-east-1-042",
+    "ip_address": "10.240.12.88",
+    "user_agent": "temporal-worker/python-v1.6.0"
+  },
+  "telemetry": {
+    "otel_trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "otel_span_id": "00f067aa0ba902b7"
+  },
+  "cryptographic_integrity": {
+    "payload_sha256": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+    "previous_event_sha256": "8f434346648f6b96df89dda901c5176b10e6d83961dd3c1ac88b59b2dc327aa4",
+    "event_sha256": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+    "merkle_root": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "worm_storage_uri": "s3://compliance-vault-us-east-1/tenants/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/audit/2026-10/7f1c1a2e-5a5f-4bf2-9844-32ff5109b830.json"
+  },
+  "data_privacy": {
+    "pii_masked": true,
+    "crypto_shred_key_id": "arn:aws:kms:us-east-1:123456789012:key/mrk-987654321",
+    "tokenized_fields": ["lead_email", "lead_phone", "lead_full_name"]
+  },
+  "payload": {
+    "node_name": "NODE3_DRAFT",
+    "llm_configuration": {
+      "provider": "anthropic",
+      "model_id": "claude-3-5-sonnet-20241022",
+      "temperature": 0.2,
+      "top_p": 0.95,
+      "max_tokens": 1024,
+      "prompt_template_version": "v3.4.1"
+    },
+    "retrieval_context": {
+      "query_text": "FinTech SOC 2 compliance automation migration latency case study",
+      "hybrid_search_results": [
+        {
+          "chunk_id": "collateral-chunk-8891",
+          "doc_title": "Enterprise Cloud Migration Case Study - Acme Bank",
+          "dense_cosine_score": 0.892,
+          "sparse_bm25_score": 14.82,
+          "rrf_final_rank": 1
+        },
+        {
+          "chunk_id": "collateral-chunk-4102",
+          "doc_title": "Continuous Compliance Engine Battlecard",
+          "dense_cosine_score": 0.841,
+          "sparse_bm25_score": 12.19,
+          "rrf_final_rank": 2
+        }
+      ]
+    },
+    "prompt_execution": {
+      "system_prompt_sha256": "91a27e029f6d6c4e0988713f0190ffb5a940b543590059f37c352bf89b4f2c0b",
+      "compiled_prompt_tokens": 1845,
+      "completion_tokens": 284,
+      "cached_prompt_tokens": 1280,
+      "execution_duration_ms": 1142,
+      "cost_usd": 0.009765
+    },
+    "generated_output": {
+      "email_subject": "Automating SOC 2 evidence collection for {{TOKEN_COMPANY_NAME}}'s Q1 expansion",
+      "email_body": "Hi {{TOKEN_LEAD_FIRST_NAME}},\n\nNoticed {{TOKEN_COMPANY_NAME}} recently posted 4 Cloud Security Architect openings to support your multi-region banking rollout.\n\nWhen Acme Bank scaled their payments cluster under strict SOC 2 Type II audit deadlines, manual evidence aggregation caused significant engineer drag. We helped their team reduce continuous audit evidence prep by 78% using automated telemetry verification.\n\nGiven your team's expansion in Q4, would you be open to comparing benchmarks next Tuesday at 10:00 AM?\n\nBest,\nAlex Turner",
+      "channel": "EMAIL_SEQUENCE_STEP_1"
+    }
+  }
+}

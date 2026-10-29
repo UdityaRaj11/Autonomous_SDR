@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutonomousSDRAuditTrailEvent",
+  "type": "object",
+  "required": [
+    "event_id",
+    "tenant_id",
+    "lead_id",
+    "agent_run_id",
+    "event_timestamp",
+    "event_type",
+    "actor",
+    "telemetry",
+    "cryptographic_integrity",
+    "data_privacy",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "lead_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "agent_run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "event_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "SIGNAL_SCRAPED",
+        "COLLATERAL_RETRIEVED",
+        "NODE1_EXTRACT_EXECUTED",
+        "NODE2_RANK_EXECUTED",
+        "NODE3_DRAFT_EXECUTED",
+        "NODE4_CRITIC_EVALUATED",
+        "HITL_REVIEW_COMPLETED",
+        "SALES_ENGAGEMENT_DISPATCHED",
+        "COMPLIANCE_TOMBSTONE_CREATED"
+      ]
+    },
+    "actor": {
+      "type": "object",
+      "required": ["actor_type", "actor_id"],
+      "properties": {
+        "actor_type": {
+          "type": "string",
+          "enum": ["SYSTEM_SERVICE", "LLM_CHAIN_WORKER", "SALES_REPRESENTATIVE", "COMPLIANCE_OFFICER"]
+        },
+        "actor_id": {
+          "type": "string"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "user_agent": {
+          "type": "string"
+        }
+      }
+    },
+    "telemetry": {
+      "type": "object",
+      "required": ["otel_trace_id", "otel_span_id"],
+      "properties": {
+        "otel_trace_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{32}$"
+        },
+        "otel_span_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{16}$"
+        }
+      }
+    },
+    "cryptographic_integrity": {
+      "type": "object",
+      "required": [
+        "payload_sha256",
+        "previous_event_sha256",
+        "event_sha256",
+        "worm_storage_uri"
+      ],
+      "properties": {
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "previous_event_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "event_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "merkle_root": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "worm_storage_uri": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "data_privacy": {
+      "type": "object",
+      "required": ["pii_masked", "crypto_shred_key_id"],
+      "properties": {
+        "pii_masked": {
+          "type": "boolean"
+        },
+        "crypto_shred_key_id": {
+          "type": "string"
+        },
+        "tokenized_fields": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

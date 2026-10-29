@@ -1,0 +1,70 @@
+{
+  "event_id": "8a3e7b19-61f2-4bc7-9a41-89d4e511b021",
+  "tenant_id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+  "lead_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "agent_run_id": "6a9f4c28-98e4-4cb4-9721-3e4b7bdf012e",
+  "event_timestamp": "2026-10-29T00:18:14.901Z",
+  "event_type": "HITL_REVIEW_COMPLETED",
+  "actor": {
+    "actor_type": "SALES_REPRESENTATIVE",
+    "actor_id": "sdr-user-5541-sarah-jenkins",
+    "ip_address": "192.0.2.14",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/130.0.0.0"
+  },
+  "telemetry": {
+    "otel_trace_id": "4bf92f3577b34da6a3ce929d0e0e4736",
+    "otel_span_id": "3c8479e0a8112d4a"
+  },
+  "cryptographic_integrity": {
+    "payload_sha256": "7c139b7a3e5c94d1b827361a9e88d4f901a1c97a22e23b6b10787a911762d194",
+    "previous_event_sha256": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+    "event_sha256": "9b9514749cb16b9b38466e2c34d31d93544fa925c270d740c0aa527bc7912445",
+    "merkle_root": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "worm_storage_uri": "s3://compliance-vault-us-east-1/tenants/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/audit/2026-10/8a3e7b19-61f2-4bc7-9a41-89d4e511b021.json"
+  },
+  "data_privacy": {
+    "pii_masked": true,
+    "crypto_shred_key_id": "arn:aws:kms:us-east-1:123456789012:key/mrk-987654321",
+    "tokenized_fields": ["lead_email", "lead_first_name", "company_name"]
+  },
+  "payload": {
+    "hitl_action": "APPROVED_WITH_EDITS",
+    "review_timestamps": {
+      "queue_arrival_timestamp": "2026-10-29T00:15:35.100Z",
+      "opened_timestamp": "2026-10-29T00:17:42.050Z",
+      "decided_timestamp": "2026-10-29T00:18:14.901Z",
+      "review_duration_ms": 32851
+    },
+    "text_diff_metrics": {
+      "subject_levenshtein_distance": 0,
+      "body_levenshtein_distance": 42,
+      "character_edit_distance_ratio": 0.0817,
+      "word_error_rate": 0.0952,
+      "original_char_count": 514,
+      "final_char_count": 526
+    },
+    "diff_chunks": [
+      {
+        "operation": "EQUAL",
+        "text": "Hi {{TOKEN_LEAD_FIRST_NAME}},\n\nNoticed {{TOKEN_COMPANY_NAME}} recently posted 4 Cloud Security Architect openings to support your multi-region banking rollout.\n\n"
+      },
+      {
+        "operation": "DELETE",
+        "text": "When Acme Bank scaled their payments cluster under strict SOC 2 Type II audit deadlines, manual evidence aggregation caused significant engineer drag."
+      },
+      {
+        "operation": "INSERT",
+        "text": "When NeoPay scaled their core ledger under ISO 27001 requirements, automated evidence controls saved 22 hours per auditor visit."
+      },
+      {
+        "operation": "EQUAL",
+        "text": " We helped their team reduce continuous audit evidence prep by 78% using automated telemetry verification.\n\nGiven your team's expansion in Q4, would you be open to comparing benchmarks next Tuesday at 10:00 AM?\n\nBest,\nAlex Turner"
+      }
+    ],
+    "feedback_tags": [
+      "SWITCHED_CASE_STUDY_FOR_BETTER_VERTICAL_FIT",
+      "STRONG_HOOK"
+    ],
+    "reviewer_notes": "NeoPay is a direct competitor in European ledger tech; Acme Bank was US only."
+  }
+}
